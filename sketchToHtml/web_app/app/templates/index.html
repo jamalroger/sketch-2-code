@@ -1,0 +1,86 @@
+{% load static %}
+<html>
+  <head>
+           <style>
+            .iframe-container iframe {
+                border: 0;
+                height: 80%;
+                width: 100%;
+            } 
+            .header {
+              background: #cccfff;
+              max-width: 100%;
+              text-align: center;
+              padding: 15px;
+              font-size: 20px;
+              box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+            }
+            </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+              <!-- Compiled and minified CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+            <!-- Compiled and minified JavaScript -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+            <!--Let browser know website is optimized for mobile-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+
+
+    <body>
+              <div class="header"><img src="/static/logo.png/" width="400px" height="100px"/></div>
+                <br/>
+                <br/>
+              <div class="container">
+                <form class="md-form" action="/" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="file-field">
+                              <div class="btn btn-primary btn-sm float-left waves-effect waves-light">
+                                <span>Choose file</span>
+                                <input type="file" name="file"> 
+                                </div>
+                              <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text"  placeholder="Upload your file">
+                            </div>
+                        </div>
+                      <input type="submit" class="btn btn-primary" value="submit"/>           
+                  
+                </form>
+
+            {% if html_url %}
+              <ul id="tabs-swipe-demo" class="tabs tabs-fixed-width tab-demo z-depth-1">
+                    <!-- tabs click change content -->
+                      <li class="tab"><a class="active" href="#view">View  Html</a></li>
+                      <li class="tab"><a href="#code">Code Source</a></li>
+              </ul>
+                  <!-- content show  -->
+               <div id="view" class="col s12">
+                      <div class="iframe-container">
+                              <iframe  id="ifra" src="{{html_url}}"></iframe>
+                        </div>
+
+               </div>  
+                <div id="code" class="col s12">
+                        <textarea id="source"  style="margin: 0px; width: 1160px; height: 361px;">waitting please ......</textarea>
+                </div>  
+            {% endif %}
+
+            </div>
+
+            <div style="bottom:0;width:100%;padding: 15px 0px;background: #E8EDEA;text-align:center;border-top:1px solid #cccfff;font-family:animevncms;">
+                Powered by JAMAL,HASSAN,ZAKARIA,BOUCHAIB,MOUAD 
+                  <br>
+
+                      Est Sidi Bennour © 2018 - 2019
+            </div>
+
+            <script>
+                      // auto init javascript
+                      setTimeout(function(){
+                        document.getElementById('source').value=document.getElementById('ifra').contentWindow.document.body.innerHTML;                       
+                      },1000)
+                       M.AutoInit();
+
+            </script>
+    </body>
+</html>
