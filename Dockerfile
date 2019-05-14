@@ -1,6 +1,6 @@
 #This is a sample Image 
 FROM ubuntu 
-MAINTAINERjamalxap@gmail.com 
+MAINTAINER   estsb@gmail.com 
 
 
 RUN apt update
