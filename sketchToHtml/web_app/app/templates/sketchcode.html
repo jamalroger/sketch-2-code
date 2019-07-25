@@ -1,0 +1,59 @@
+{% extends 'layouts.html' %}
+{% block main %}
+
+
+<h1> Convert  your sketch code image to pdf </h1>
+<div class="alert">suppoert only Format png</div>
+<hr>
+
+<form class="md-form" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="file-field">
+            <div class="btn btn-primary btn-sm float-left waves-effect waves-light">
+              <span>Choose file</span>
+              <input type="file" name="file"> 
+              </div>
+            <div class="file-path-wrapper">
+            <input class="file-path validate" type="text"  placeholder="Upload your file">
+          </div>
+      </div>
+    <input type="submit" class="btn btn-primary" value="submit"/>           
+
+</form>
+
+{% if html_url %}
+<ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab-md" data-toggle="tab" href="#view" role="tab" aria-controls="view"
+      aria-selected="true">View </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#code" role="tab" aria-controls="code"
+      aria-selected="false">Source</a>
+  </li>
+</ul>
+<div class="tab-content card pt-5" id="myTabContentMD">
+  <div class="tab-pane fade show active" id="view" role="tabpanel" aria-labelledby="code-tab-md">
+    <div class="iframe-container">
+      <iframe  id="ifra" src="{{html_url}}"></iframe>
+   </div>
+  </div>
+  <div class="tab-pane fade" id="code" role="tabpanel" aria-labelledby="code-tab-md">
+    <textarea id="source"  style="margin: 0px; width: 100%; height: 361px;">waitting please ......</textarea>
+  
+  </div>
+</div>
+
+{% endif %}
+<style>
+
+.iframe-container iframe {
+                border: 0;
+                height: 80%;
+                width: 100%;
+            } 
+
+</style>
+
+
+{% endblock main %}

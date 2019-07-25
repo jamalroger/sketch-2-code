@@ -1,0 +1,23 @@
+{% extends 'layouts.html' %}
+{% block main %}
+<h1> Convert document word to pdf </h1>
+<hr>
+<form class="md-form" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="file-field">
+            <div class="btn btn-primary btn-sm float-left waves-effect waves-light">
+              <span>Choose file</span>
+              <input type="file" name="file"> 
+              </div>
+            <div class="file-path-wrapper">
+            <input class="file-path validate" type="text"  placeholder="Upload your file">
+          </div>
+      </div>
+    <input type="submit" class="btn btn-primary" value="Convert"/> 
+    <br/>
+    {% if pdf_url %}
+    <hr>
+    <div style="text-align:center"> <a href="{{pdf_url}}" class="btn btn-primary"> <i class="fas fa-download"></i> Download pdf </a> </div>
+    {% endif %}
+
+{% endblock main %}
