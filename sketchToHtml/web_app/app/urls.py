@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^contact/$', views.contact.as_view()),
     url(r'^support/$', views.support.as_view()),
     url(r'^google8bce582a947019d2.html$', views.google.as_view()),
+     url(r'^ads.txt$', views.ads.as_view()),
 ]
