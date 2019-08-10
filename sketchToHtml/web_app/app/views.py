@@ -47,4 +47,7 @@ class support(TemplateView):
 class google(TemplateView):
 	def get(self, request, **kwargs):
 		return render(request, 'google8bce582a947019d2.html')
+class ads(TemplateView):
+	def get(self, request, **kwargs):
+		return render(request, 'ads.txt')
 
