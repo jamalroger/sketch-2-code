@@ -1,2 +1,2 @@
 # sketch-2-code
-first learning machine program hhhh
+first learning machine program
